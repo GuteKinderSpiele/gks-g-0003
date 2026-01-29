@@ -5,23 +5,23 @@ import MainScene from './MainScene';
 import EndScene from './EndScene';
 
 export const gameMeta = {
-    sceneKey: 'Template_Intro',
+    sceneKey: 'VerliebteHerzen',
     previewImage: cardImg,
     title: {
-        en: "Template Game",
-        de: "Spiel Vorlage"
+        en: "Verliebte Herzen",
+        de: "Verliebte Herzen"
     },
     description: {
-        en: "A clean starting point for new games.",
-        de: "Ein sauberer Startpunkt für neue Spiele."
+        en: "Find the matching hearts.",
+        de: "Finde die zueinander passenden Herzen."
     },
-    context: ["knowledge"], // Options: 'math', 'language', 'knowledge'
+    context: ["math"], // Options: 'math', 'language', 'knowledge'
     difficulty: 1
 };
 
 export default class IntroScene extends Phaser.Scene {
     constructor() {
-        super({ key: 'Template_Intro' });
+        super({ key: 'VerliebteHerzen' });
     }
 
     create() {
@@ -30,15 +30,15 @@ export default class IntroScene extends Phaser.Scene {
         const lang = this.registry.get('currentLanguage') || 'en';
 
         // --- 1. BOOTSTRAP SCENES ---
-        if (!this.scene.get('Template_Main')) {
-            this.scene.add('Template_Main', MainScene, false);
-            this.scene.add('Template_End', EndScene, false);
+        if (!this.scene.get('Verliebte_Main')) {
+            this.scene.add('Verliebte_Main', MainScene, false);
+            this.scene.add('Verliebte_End', EndScene, false);
         }
 
         // --- 2. INTRO VISUALS ---
-        this.add.rectangle(cw / 2, ch / 2, cw, ch, 0x4CAF50); // Green
+        this.add.rectangle(cw / 2, ch / 2, cw, ch, 0xE91E63); // Pinkish for hearts
 
-        const welcomeText = lang === 'de' ? "Willkommen!" : "Welcome!";
+        const welcomeText = lang === 'de' ? "Verliebte Herzen" : "Matching Hearts";
         this.add.text(cw / 2, ch / 2, welcomeText, {
             fontSize: '48px',
             color: '#ffffff',
@@ -58,6 +58,6 @@ export default class IntroScene extends Phaser.Scene {
 
         this.tweens.add({ targets: startText, alpha: 1, duration: 800, yoyo: true, repeat: -1 });
 
-        this.input.on('pointerdown', () => this.scene.start('Template_Main'));
+        this.input.on('pointerdown', () => this.scene.start('Verliebte_Main'));
     }
 }
