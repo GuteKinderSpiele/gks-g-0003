@@ -1,3 +1,12 @@
 {
-   "signedContributors": []
+  "signedContributors": [
+    {
+      "name": "ManuelKugelmann",
+      "id": 2060551,
+      "comment_id": 3823058536,
+      "created_at": "2026-01-30T10:43:48Z",
+      "repoId": 1145374999,
+      "pullRequestNo": 2
+    }
+  ]
 }
